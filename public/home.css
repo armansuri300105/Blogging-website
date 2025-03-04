@@ -1,0 +1,69 @@
+.myblogs-container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.myblogs-container ul{
+    margin: 50px auto auto 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.myblogs-container ul li{
+    width: 60vw;
+    padding: 10px;
+    /* list-style-position: inside; */
+    list-style: none;
+    position: relative;
+    box-shadow: 1px 1px 10px rgb(209, 207, 207),
+                -1px -1px 10px rgb(209, 207, 207);
+}
+.myblogs-container ul li .box .description{
+    height: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.myblogs-container ul li a{
+    color: blue;
+    position: absolute;
+    bottom: 10px;
+    text-decoration: none;
+}
+.myblogs-container .box .heading{
+    display: flex;
+    justify-content: space-between;
+}
+.myblogs-container .box .heading .type{
+    border: 1px solid rgba(0, 0, 0, 0.443);
+    border-radius: 7px;
+    background-color: rgb(63, 63, 255);
+}
+.myblogs-container .box .heading .type p{
+    padding: 2px 4px 2px 4px;
+    margin: 0;
+    color: white;
+}
+.myblogs-container ul li .bottom form button{
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    background-color: transparent;
+    border: none;
+    color: red;
+}
+.myblogs-container ul li .details .views{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.myblogs-container ul li .details .views svg{
+    width: 15px;
+    height: 15px;
+}
+.myblogs-container ul li .details .views p{
+    margin: 0;
+}

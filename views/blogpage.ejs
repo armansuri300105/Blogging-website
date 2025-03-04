@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <%- include('./partials/link') %>
+    <title>Add Blogs</title>
+</head>
+<body>
+    <% if(locals.username){ %>
+        <%- include('./partials/nav', {username}) %>
+    <% }else { %>
+        <%- include('./partials/nav') %>
+    <% } %>
+    <div class="blog-container">
+        <div class="box">
+            <div class="heading">
+                <h1><%= blog.title %></h1>
+                <p>written by: <%= createdBy %></p>
+                <div class="views">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M160 80c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 352c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-352zM0 272c0-26.5 21.5-48 48-48l32 0c26.5 0 48 21.5 48 48l0 160c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48L0 272zM368 96l32 0c26.5 0 48 21.5 48 48l0 288c0 26.5-21.5 48-48 48l-32 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48z"/></svg>
+                    <p><%= blog.views %></p>
+                </div>
+            </div>
+            <p><%= blog.description %></p>
+        </div>
+    </div>
+    <div class="comments">
+        <h1>Comments</h1>
+        <hr>
+        <form method="POST" action="/blogs/comment/<%= locals.blog._id %>">
+            <input name="content" type="text" placeholder="comment">
+            <button type="submit">Comment</button>
+        </form>
+        <ul>
+            <% if (locals.blog) { %>
+                <% locals.blog.comments.forEach(comment => { %>
+                    <li>
+                        <img src="<%= comment.profile %>" alt="">
+                        <div class="content">
+                            <h3 class="username"><%= comment.user %></h3>
+                            <p><%= comment.content %></p>
+                        </div>
+                        <% if (locals.username && comment.user === username.username){ %>
+                            <form class="delete" action="/blogs/comment/<%= locals.blog._id %>?_method=DELETE" method="POST">
+                                <input style="display: none;" type="text" name="commentId" value="<%= comment._id %>">
+                                <button type="submit">
+                                    <img src="/bin.png" alt="">
+                                </button>
+                            </form>
+                        <% } %>
+                    </li>
+                <% }) %>
+            <% } %>
+        </ul>
+    </div>
+    <%- include('./partials/script') %>
+</body>
+</html>

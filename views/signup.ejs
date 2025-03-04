@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/LoginSignup.css">
+    <title>Login user</title>
+</head>
+<body>
+    <div class="body">
+        <div class="container">
+            <h1>User login</h1>
+            <form Method="POST" action="/signup">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input name="name" type="text">
+                </div>
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input name="username" type="text">
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input name="email" type="text">
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input name="password" type="password">
+                    <% if (locals.error) { %>
+                        <p class="error"><%= locals.error%></p>
+                    <% } %>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p class="anchor">Already have an account <a href="/login">login</a></p>
+        </div>
+    </div>
+</body>
+</html>

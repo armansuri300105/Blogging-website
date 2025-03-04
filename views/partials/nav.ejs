@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">ArBlogs</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <% if (locals.username){ %>
+                        <a class="nav-link" href="/blogs">Add bloggs</a>
+                    <% } %>
+                </li>
+                <li class="nav-item">
+                    <% if (locals.username){ %>
+                        <a class="nav-link" href="/myblogs">My Blogs</a>
+                    <% } %>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <% if (locals.username){ %>
+                            <%= username.username %>
+                        <% }else{ %>
+                            login
+                        <% } %>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/logout">
+                            <% if (locals.username){ %>
+                                logout
+                            <% }else{ %>
+                                login
+                            <% } %>
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <% if (locals.username){ %>
+            <div style="width: 40px; height: 40px; border-radius: 50%;" class="profile"><img style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: center;" src= "<%= username.profile %>" alt="user profile"></div>
+        <% }else{ %>
+        <% } %>
+    </div>
+</nav>

@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container, .blog-container{
+    display: flex;
+    width: 100vw;
+}
+.blog-container .box{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.blog-container .box .heading p{
+    color: rgba(2, 2, 2, 0.436);
+}
+.container .box{
+    margin-top: 50px;
+}
+.container .box form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 80vw;
+}
+.container .box form select{
+    width: 100px;
+}
+.container .box .field{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.container .box .field input{
+    width: 80vw;
+    max-width: 300px;
+    height: 40px;
+    outline: none;
+    padding: 5px;
+}
+.container .box button{
+    background-color: rgb(63, 63, 255);
+    border: none;
+    width: 200px;
+    height: 30px;
+    color: white;
+}
+.container .box .field textarea{
+    outline: none;
+    padding: 5px;
+    width: 80vw;
+    max-width: 500px;
+}
+
+.comments{
+    margin-left: 50px;
+}
+.comments h1{
+    font-size: 25px;
+    color: rgb(78, 65, 255);
+}
+.comments hr{
+    width: 90vw;
+}
+.comments ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    margin-top: 50px;
+}
+.comments ul li{
+    width: 400px;
+    display: flex;
+    gap: 10px;
+    position: relative;
+}
+.comments ul li img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.comments ul li h3{
+    font-size: 15px;
+}
+.comments form{
+    display: flex;
+    gap: 10px;
+}
+.comments form input{
+    width: 250px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid black;
+    outline: none;
+}
+.comments form button{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(84, 84, 251);
+    border: 1px solid white;
+    border-radius: 2px;
+    color: white;
+}
+.comments ul li .delete{
+    position: absolute;
+    right: 0;
+}
+.comments ul li .delete button{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+}
+.comments ul li .delete img{
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.views{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.views svg{
+    width: 15px;
+    height: 15px;
+}
+.views p{
+    margin: 0;
+}
+
+@media screen and (max-width: 500px){
+    .blog-container .box{
+        padding: 20px;
+    }
+    .comments ul li{
+        width: 250px;
+    }
+    .comments form input{
+        width: 200px;
+    }
+    .comments{
+        margin-left: 20px;
+    }
+}
+@media screen and (max-width: 350px){
+    .comments form{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .comments ul{
+        padding: 0;
+    }
+    .comments ul li{
+        width: 80vw;
+    }
+    .comments form input{
+        width: 80vw;
+    }
+    .comments{
+        margin-left: 20px;
+    }
+}
